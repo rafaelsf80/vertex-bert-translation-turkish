@@ -33,13 +33,13 @@ uvicorn main:app --host 0.0.0.0 --port 8080
 ```
 
 
-## Set up for online prediction
+## Set up 
 
 1. After finetuning, move the resulting model to the `predict/model-output-tr-en` directory (for example, with `gsutil`). The `predict` directory contains the `Dockerfile` to generate the Custom Container image. 
-2. Follow the instructions below under section **Upload and Online deployment in Vertex AI prediction**. It will upload the model to Vertex AI and will create an online endpoint.
-3. Make a Batch prediction following instructions under section below **Batch prediction on Vertex AI**.
+2. Follow the instructions below under section **Online predictions in Vertex AI**. It will upload the model to Vertex AI and will create an online endpoint.
+3. Make a Batch prediction following instructions under section below **Batch predictions on Vertex AI**.
 
-The model must be stored in the `predict/model-output-tr-en` directory, with s aimilar content like this:
+The model must be stored in the `predict/model-output-tr-en` directory, with a similar content like this:
 ```sh
 -rw-r--r--   1 rafaelsanchez  primarygroup       1399 14 Sep 11:19 config.json
 -rw-r--r--   1 rafaelsanchez  primarygroup  304670597 14 Sep 11:19 pytorch_model.bin
@@ -52,7 +52,7 @@ The model must be stored in the `predict/model-output-tr-en` directory, with s a
 ```
 
 
-## Upload and Online deployment in Vertex AI prediction
+## Online predictions in Vertex AI
 
 Push docker image to **Artifact Registry**:
 ```bash
@@ -174,7 +174,7 @@ content-type: application/json
 ```
 
 
-## Batch prediction on Vertex AI
+## Batch predictions on Vertex AI
 
 Upload `batch_input_data.jsonl` to GCS using `gsutil`:
 ```sh
